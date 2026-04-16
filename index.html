@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 20th Birthday</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-date fade-in">April 25, 2025</p>
+      <h1 class="hero-name fade-in delay-1">夢羽</h1>
+      <h2 class="hero-title fade-in delay-2">Happy 20th Birthday</h2>
+      <p class="hero-subtitle fade-in delay-3">20歳の誕生日おめでとう</p>
+    </div>
+    <div class="scroll-hint fade-in delay-4">
+      <span class="scroll-arrow"></span>
+    </div>
+  </section>
+
+  <!-- INTERSTITIAL 1 -->
+  <section class="inter-section">
+    <div class="inter-sticky">
+      <p class="inter-text inter-text-1">ネックレスは気に入ってくれた？</p>
+    </div>
+  </section>
+
+  <!-- INTERSTITIAL 2 -->
+  <section class="inter-section">
+    <div class="inter-sticky">
+      <p class="inter-text inter-text-2">しかし、</p>
+    </div>
+  </section>
+
+  <!-- PRESENT -->
+  <section class="present">
+    <div class="present-sticky">
+      <div class="section-inner">
+        <div class="gift-reveal">
+          <div class="gift-icon gift-necklace">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6 Q40 28 56 6"/>
+              <circle cx="40" cy="38" r="14"/>
+              <path d="M33 32 L40 46 L47 32"/>
+            </svg>
+          </div>
+          <div class="gift-icon gift-travel">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="30" width="52" height="34" rx="4"/>
+              <path d="M28 30 V20 Q28 14 34 14 H46 Q52 14 52 20 V30"/>
+              <line x1="14" y1="44" x2="66" y2="44"/>
+              <line x1="40" y1="44" x2="40" y2="64"/>
+            </svg>
+          </div>
+        </div>
+        <p class="present-line">今回のプレゼントはネックレスだけではありません。</p>
+        <p class="present-line">20歳という特別な節目に、もうひとつ、大切なものを贈ります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAVEL -->
+  <section class="travel">
+    <div class="section-inner">
+      <div class="travel-header">
+        <h2 class="travel-destination">熱海へ</h2>
+        <p class="travel-subtitle">一緒に旅行に行きます</p>
+      </div>
+
+      <!-- Day 1 -->
+      <div class="day-block">
+        <h3 class="day-title">Day 1</h3>
+        <p class="day-date">5月8日（金）</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="time">8:20</span>
+            <div class="event">
+              <p class="event-title">西八王子駅集合</p>
+            </div>
+          </div>
+
+          <!-- Route: 西八王子 ⇒ 熱海 -->
+          <div class="timeline-item has-route">
+            <span class="time">8:35〜11:20</span>
+            <div class="event">
+              <p class="event-title">西八王子 ⇒ 熱海</p>
+              <p class="event-detail">乗換1回・2時間45分</p>
+              <button class="route-toggle" aria-expanded="false">
+                <span class="route-toggle-text">詳細を表示</span>
+                <span class="route-toggle-icon"></span>
+              </button>
+              <div class="route-panel">
+                <div class="route-panel-inner">
+                  <div class="route-header">
+                    <span class="route-label">西八王子 ⇒ 熱海</span>
+                    <span class="route-date">2026年5月8日（金）08:35 ⇒ 11:20</span>
+                  </div>
+                  <div class="route-stats">
+                    <div class="route-stat">
+                      <span class="stat-label">所要時間</span>
+                      <span class="stat-value">2時間45分</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">運賃</span>
+                      <span class="stat-value">1,782円</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">乗換</span>
+                      <span class="stat-value">1回</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">距離</span>
+                      <span class="stat-value">154.4 km</span>
+                    </div>
+                  </div>
+                  <div class="route-steps">
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">西八王子</span>
+                      </div>
+                      <div class="step-line">
+                        <div class="step-line-bar"></div>
+                        <div class="step-line-info">
+                          <p>08:35〜09:54</p>
+                          <p>JR中央線快速 東京行</p>
+                          <p class="step-platform">1番線発 → 2番線着</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">東京</span>
+                      </div>
+                      <div class="step-line">
+                        <div class="step-line-bar"></div>
+                        <div class="step-line-info">
+                          <p>10:00〜11:20</p>
+                          <p>JR特急踊り子5号 伊豆急下田行</p>
+                          <p class="step-platform">9番線発 → 2番線着</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">熱海</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="time">11:30〜17:00</span>
+            <div class="event">
+              <p class="event-title">熱海散策・食べ歩き</p>
+            </div>
+          </div>
+
+          <!-- Route: 熱海 ⇒ 来宮 -->
+          <div class="timeline-item has-route">
+            <span class="time">17:06〜17:08</span>
+            <div class="event">
+              <p class="event-title">熱海 ⇒ 来宮</p>
+              <p class="event-detail">乗換なし・2分</p>
+              <button class="route-toggle" aria-expanded="false">
+                <span class="route-toggle-text">詳細を表示</span>
+                <span class="route-toggle-icon"></span>
+              </button>
+              <div class="route-panel">
+                <div class="route-panel-inner">
+                  <div class="route-header">
+                    <span class="route-label">熱海 ⇒ 来宮</span>
+                    <span class="route-date">2026年5月8日（金）17:06 ⇒ 17:08</span>
+                  </div>
+                  <div class="route-stats">
+                    <div class="route-stat">
+                      <span class="stat-label">所要時間</span>
+                      <span class="stat-value">2分</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">運賃</span>
+                      <span class="stat-value">155円</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">乗換</span>
+                      <span class="stat-value">0回</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">距離</span>
+                      <span class="stat-value">1.2 km</span>
+                    </div>
+                  </div>
+                  <div class="route-steps">
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">熱海</span>
+                      </div>
+                      <div class="step-line">
+                        <div class="step-line-bar"></div>
+                        <div class="step-line-info">
+                          <p>17:06〜17:08</p>
+                          <p>JR伊東線 伊豆高原行</p>
+                          <p class="step-platform">1番線発</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">来宮</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="time">18:00</span>
+            <div class="event">
+              <p class="event-title">ディナー</p>
+              <p class="event-detail">A TUTTA cucina italiana di Taka</p>
+              <a class="event-link" href="https://restaurant.ikyu.com/126555" target="_blank" rel="noopener">一休.comで見る</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">20:00</span>
+            <div class="event">
+              <p class="event-title">伊東へ移動</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">20:30</span>
+            <div class="event">
+              <p class="event-title">Laforet伊東温泉 湯の庭 チェックイン</p>
+              <a class="event-link" href="https://www.laforet.co.jp/ito/" target="_blank" rel="noopener">公式サイト</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="day-block">
+        <h3 class="day-title">Day 2</h3>
+        <p class="day-date">5月9日（土）</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="time">10:00</span>
+            <div class="event">
+              <p class="event-title">チェックアウト</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">10:00〜17:00</span>
+            <div class="event">
+              <p class="event-title">観光・海沿い散歩</p>
+            </div>
+          </div>
+          <!-- Route: 熱海 ⇒ 西八王子 -->
+          <div class="timeline-item has-route">
+            <span class="time">17:32〜19:32</span>
+            <div class="event">
+              <p class="event-title">熱海 ⇒ 西八王子</p>
+              <p class="event-detail">乗換1回・2時間0分</p>
+              <button class="route-toggle" aria-expanded="false">
+                <span class="route-toggle-text">詳細を表示</span>
+                <span class="route-toggle-icon"></span>
+              </button>
+              <div class="route-panel">
+                <div class="route-panel-inner">
+                  <div class="route-header">
+                    <span class="route-label">熱海 ⇒ 西八王子</span>
+                    <span class="route-date">2026年5月9日（土）17:32 ⇒ 19:32</span>
+                  </div>
+                  <div class="route-stats">
+                    <div class="route-stat">
+                      <span class="stat-label">所要時間</span>
+                      <span class="stat-value">2時間0分</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">運賃</span>
+                      <span class="stat-value">2,690円</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">乗換</span>
+                      <span class="stat-value">1回</span>
+                    </div>
+                    <div class="route-stat">
+                      <span class="stat-label">距離</span>
+                      <span class="stat-value">154.4 km</span>
+                    </div>
+                  </div>
+                  <div class="route-steps">
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">熱海</span>
+                      </div>
+                      <div class="step-line">
+                        <div class="step-line-bar"></div>
+                        <div class="step-line-info">
+                          <p>17:32〜18:18</p>
+                          <p>JR新幹線こだま834号 東京行</p>
+                          <p class="step-platform">7番線発 → 19番線着</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">東京</span>
+                      </div>
+                      <div class="step-line">
+                        <div class="step-line-bar"></div>
+                        <div class="step-line-info">
+                          <p>18:37〜19:32</p>
+                          <p>JR中央線中央特快 高尾行</p>
+                          <p class="step-platform">1番線発 → 2番線着</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="route-step">
+                      <div class="step-station">
+                        <span class="step-dot"></span>
+                        <span class="step-name">西八王子</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <div class="section-inner">
+      <h2 class="highlights-title">Highlights</h2>
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <span class="card-tag">Dinner</span>
+          <h3 class="card-name">A TUTTA</h3>
+          <p class="card-sub">cucina italiana di Taka</p>
+          <p class="card-desc">伊豆杉のカウンター6席だけの隠れ家イタリアン。熱海・伊豆の食材を活かした本格コース料理。</p>
+          <a class="card-link" href="https://restaurant.ikyu.com/126555" target="_blank" rel="noopener">一休.comで見る</a>
+        </div>
+        <div class="highlight-card">
+          <span class="card-tag">Stay</span>
+          <h3 class="card-name">Laforet伊東温泉</h3>
+          <p class="card-sub">湯の庭</p>
+          <p class="card-desc">東郷平八郎元帥が「健身湯」と名付けた由緒ある自家源泉。伊東港直送の旬の味覚と温泉を堪能。</p>
+          <a class="card-link" href="https://www.laforet.co.jp/ito/" target="_blank" rel="noopener">公式サイト</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer-section">
+    <div class="section-inner">
+      <p class="footer-message">一緒に最高の20歳を過ごしましょう。</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
