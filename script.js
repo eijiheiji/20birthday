@@ -8,13 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var scrollHint = document.querySelector(".scroll-hint");
   var heroHeight = window.innerHeight;
 
-  var interSections = document.querySelectorAll(".inter-section");
-  var interTexts = document.querySelectorAll(".inter-text");
-
-  var presentSection = document.querySelector(".present");
-  var presentLines = document.querySelectorAll(".present-line");
-  var giftReveal = document.querySelector(".gift-reveal");
-
   /* =============================================
      Scroll-triggered reveals (IntersectionObserver)
      ============================================= */
@@ -26,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          // stagger cards
           if (entry.target.classList.contains("highlight-card")) {
             var cards = document.querySelectorAll(".highlight-card");
             var idx = Array.prototype.indexOf.call(cards, entry.target);
@@ -91,82 +83,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* =============================================
-     Scroll handler — runs every frame via rAF
+     Scroll handler — progress bar + hero parallax
      ============================================= */
   var ticking = false;
-
-  function clamp(val, min, max) {
-    return val < min ? min : val > max ? max : val;
-  }
 
   function onScroll() {
     var scrollY = window.pageYOffset;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-    // --- 1. Progress bar ---
     var scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
     progressBar.style.width = scrollPercent + "%";
 
-    // --- 2. Hero parallax ---
     if (scrollY < heroHeight) {
       var progress = scrollY / heroHeight;
       heroContent.style.transform = "translateY(-" + (scrollY * 0.35) + "px)";
       heroContent.style.opacity = Math.max(0, 1 - progress * 1.2);
       if (scrollHint) {
         scrollHint.style.opacity = Math.max(0, 1 - progress * 3);
-      }
-    }
-
-    // --- 3. Interstitial sections — each fades in then out independently ---
-    interSections.forEach(function (section, i) {
-      var text = interTexts[i];
-      if (!text) return;
-      var rect = section.getBoundingClientRect();
-      var scrollable = section.offsetHeight - window.innerHeight;
-      if (scrollable <= 0) return;
-      var progress = clamp(-rect.top / scrollable, 0, 1);
-
-      var op = 0, ty = 20;
-      if (progress < 0.35) {
-        var p = progress / 0.35;
-        op = p; ty = 20 * (1 - p);
-      } else if (progress < 0.6) {
-        op = 1; ty = 0;
-      } else {
-        var p = (progress - 0.6) / 0.3;
-        op = Math.max(0, 1 - p); ty = -10 * p;
-      }
-      text.style.opacity = op;
-      text.style.transform = "translateY(" + ty + "px)";
-    });
-
-    // --- 4. Present — sticky text reveal + gift swap ---
-    if (presentSection) {
-      var pRect = presentSection.getBoundingClientRect();
-      var pScrollable = presentSection.offsetHeight - window.innerHeight;
-      if (pScrollable > 0) {
-        var pScrolled = -pRect.top;
-        var pProgress = clamp(pScrolled / pScrollable, 0, 1);
-
-        // Gift reveal: swap at 40%
-        if (giftReveal) {
-          if (pProgress > 0.4) {
-            giftReveal.classList.add("swapped");
-          } else {
-            giftReveal.classList.remove("swapped");
-          }
-        }
-
-        // Text lines
-        presentLines.forEach(function (line, i) {
-          var lineStart = (i * 0.35) + 0.15;
-          var lineEnd = lineStart + 0.2;
-          if (pProgress >= lineStart) {
-            line.classList.add("line-visible");
-          } else {
-            line.classList.remove("line-visible");
-          }
-        });
       }
     }
 
@@ -180,6 +113,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, { passive: true });
 
-  // Initial run
   onScroll();
 });
