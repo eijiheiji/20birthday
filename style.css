@@ -703,11 +703,15 @@ body {
 /* ============================================
    CURRENT TIMELINE ITEM ("今ここ")
    ============================================ */
+.timeline-item.current {
+  isolation: isolate;
+}
+
 .timeline-item.current::after {
   content: "";
   position: absolute;
   inset: 4px -16px 4px -16px;
-  background: linear-gradient(90deg, rgba(41, 151, 255, 0.1), rgba(41, 151, 255, 0));
+  background: linear-gradient(90deg, rgba(41, 151, 255, 0.12), rgba(41, 151, 255, 0));
   border-radius: 12px;
   z-index: -1;
   pointer-events: none;
