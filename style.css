@@ -643,6 +643,131 @@ body {
 }
 
 /* ============================================
+   WEATHER WIDGET
+   ============================================ */
+.weather-widget {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 520px;
+  margin: 0 auto 80px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.weather-widget.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.weather-day {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.12px;
+  color: rgba(255, 255, 255, 0.56);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.weather-icon {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.weather-temp {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.21px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.weather-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+/* ============================================
+   CURRENT TIMELINE ITEM ("今ここ")
+   ============================================ */
+.timeline-item.current::after {
+  content: "";
+  position: absolute;
+  inset: 4px -16px 4px -16px;
+  background: linear-gradient(90deg, rgba(41, 151, 255, 0.1), rgba(41, 151, 255, 0));
+  border-radius: 12px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.timeline-item.current::before {
+  background: #2997ff;
+  box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.2);
+  animation: currentPulse 2s ease-in-out infinite;
+}
+
+.timeline-item.current .event-title::before {
+  content: "今ここ";
+  display: inline-block;
+  background: #2997ff;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-right: 8px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+@keyframes currentPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(41, 151, 255, 0);
+  }
+}
+
+/* Map link variant */
+.event-link.map-link {
+  margin-left: 12px;
+}
+
+.event-link.map-link::before {
+  content: "📍";
+  margin-right: 4px;
+  font-size: 11px;
+}
+
+/* Highlight card multi-link */
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card-links .card-link {
+  margin-top: 0;
+}
+
+/* ============================================
    HIGHLIGHTS
    ============================================ */
 .highlights {
@@ -941,6 +1066,23 @@ body {
     padding-left: 24px;
     padding-top: 20px;
     padding-bottom: 4px;
+  }
+
+  .weather-widget {
+    margin-bottom: 56px;
+  }
+
+  .weather-icon {
+    font-size: 32px;
+  }
+
+  .timeline-item.current::after {
+    inset: 4px -8px 4px 16px;
+  }
+
+  .event-link.map-link {
+    margin-left: 0;
+    margin-top: 4px;
   }
 
   .timeline-item::before {

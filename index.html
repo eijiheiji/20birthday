@@ -32,20 +32,37 @@
         <p class="travel-subtitle">行きます‼️</p>
       </div>
 
+      <!-- WEATHER -->
+      <div class="weather-widget" id="weather-widget" aria-live="polite">
+        <div class="weather-card" data-date="2026-05-08">
+          <p class="weather-day">Day 1 · 5/8（金）</p>
+          <p class="weather-icon">⋯</p>
+          <p class="weather-temp">—</p>
+          <p class="weather-desc">読み込み中</p>
+        </div>
+        <div class="weather-card" data-date="2026-05-09">
+          <p class="weather-day">Day 2 · 5/9（土）</p>
+          <p class="weather-icon">⋯</p>
+          <p class="weather-temp">—</p>
+          <p class="weather-desc">読み込み中</p>
+        </div>
+      </div>
+
       <!-- Day 1 -->
       <div class="day-block">
         <h3 class="day-title">Day 1</h3>
         <p class="day-date">5月8日（金）</p>
         <div class="timeline">
-          <div class="timeline-item">
+          <div class="timeline-item" data-start="2026-05-08T08:00" data-end="2026-05-08T08:35">
             <span class="time">8:20</span>
             <div class="event">
               <p class="event-title">西八王子駅集合</p>
+              <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E5%85%AB%E7%8E%8B%E5%AD%90%E9%A7%85" target="_blank" rel="noopener">地図を開く</a>
             </div>
           </div>
 
           <!-- Route: 西八王子 ⇒ 熱海 -->
-          <div class="timeline-item has-route">
+          <div class="timeline-item has-route" data-start="2026-05-08T08:35" data-end="2026-05-08T11:20">
             <span class="time">8:35〜11:20</span>
             <div class="event">
               <p class="event-title">西八王子 ⇒ 熱海</p>
@@ -119,15 +136,16 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item" data-start="2026-05-08T11:30" data-end="2026-05-08T17:00">
             <span class="time">11:30〜17:00</span>
             <div class="event">
               <p class="event-title">熱海散策・食べ歩き</p>
+              <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%B1%E6%B5%B7%E9%A7%85" target="_blank" rel="noopener">熱海エリアの地図</a>
             </div>
           </div>
 
           <!-- Route: 熱海 ⇒ 来宮 -->
-          <div class="timeline-item has-route">
+          <div class="timeline-item has-route" data-start="2026-05-08T17:06" data-end="2026-05-08T17:08">
             <span class="time">17:06〜17:08</span>
             <div class="event">
               <p class="event-title">熱海 ⇒ 来宮</p>
@@ -187,19 +205,21 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item" data-start="2026-05-08T18:00" data-end="2026-05-08T20:15">
             <span class="time">18:00</span>
             <div class="event">
               <p class="event-title">ディナー</p>
               <p class="event-detail">A TUTTA cucina italiana di Taka</p>
               <a class="event-link" href="https://restaurant.ikyu.com/126555" target="_blank" rel="noopener">一休.comで見る</a>
+              <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&query=A+TUTTA+cucina+italiana+di+Taka+%E7%86%B1%E6%B5%B7" target="_blank" rel="noopener">地図を開く</a>
             </div>
           </div>
-          <div class="timeline-item">
+          <div class="timeline-item" data-start="2026-05-08T20:15" data-end="2026-05-09T09:30">
             <span class="time">20:15</span>
             <div class="event">
               <p class="event-title">熱海シーサイドスパ&リゾート チェックイン</p>
               <a class="event-link" href="https://www.atamiseaside.com/" target="_blank" rel="noopener">公式サイト</a>
+              <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%B1%E6%B5%B7%E3%82%B7%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89%E3%82%B9%E3%83%91%26%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88" target="_blank" rel="noopener">地図を開く</a>
             </div>
           </div>
         </div>
@@ -210,20 +230,21 @@
         <h3 class="day-title">Day 2</h3>
         <p class="day-date">5月9日（土）</p>
         <div class="timeline">
-          <div class="timeline-item">
+          <div class="timeline-item" data-start="2026-05-09T09:30" data-end="2026-05-09T10:00">
             <span class="time">10:00</span>
             <div class="event">
               <p class="event-title">チェックアウト</p>
             </div>
           </div>
-          <div class="timeline-item">
+          <div class="timeline-item" data-start="2026-05-09T10:00" data-end="2026-05-09T17:00">
             <span class="time">10:00〜17:00</span>
             <div class="event">
               <p class="event-title">観光・海沿い散歩</p>
+              <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%B1%E6%B5%B7%E3%82%B5%E3%83%B3%E3%83%93%E3%83%BC%E3%83%81" target="_blank" rel="noopener">熱海サンビーチの地図</a>
             </div>
           </div>
           <!-- Route: 熱海 ⇒ 西八王子 -->
-          <div class="timeline-item has-route">
+          <div class="timeline-item has-route" data-start="2026-05-09T17:32" data-end="2026-05-09T19:32">
             <span class="time">17:32〜19:32</span>
             <div class="event">
               <p class="event-title">熱海 ⇒ 西八王子</p>
@@ -311,14 +332,20 @@
           <h3 class="card-name">A TUTTA</h3>
           <p class="card-sub">cucina italiana di Taka</p>
           <p class="card-desc">伊豆杉のカウンター6席だけの隠れ家イタリアン。熱海・伊豆の食材を活かした本格コース料理。</p>
-          <a class="card-link" href="https://restaurant.ikyu.com/126555" target="_blank" rel="noopener">一休.comで見る</a>
+          <div class="card-links">
+            <a class="card-link" href="https://restaurant.ikyu.com/126555" target="_blank" rel="noopener">一休.comで見る</a>
+            <a class="card-link" href="https://www.google.com/maps/search/?api=1&query=A+TUTTA+cucina+italiana+di+Taka+%E7%86%B1%E6%B5%B7" target="_blank" rel="noopener">地図を開く</a>
+          </div>
         </div>
         <div class="highlight-card">
           <span class="card-tag">Stay</span>
           <h3 class="card-name">熱海シーサイド</h3>
           <p class="card-sub">スパ&リゾート</p>
           <p class="card-desc">熱海駅から徒歩約10分、ビーチと熱海温泉のすぐそば。天然温泉の露天風呂・大浴場・サウナを備えた海沿いのリゾートホテル。</p>
-          <a class="card-link" href="https://www.atamiseaside.com/" target="_blank" rel="noopener">公式サイト</a>
+          <div class="card-links">
+            <a class="card-link" href="https://www.atamiseaside.com/" target="_blank" rel="noopener">公式サイト</a>
+            <a class="card-link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%B1%E6%B5%B7%E3%82%B7%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89%E3%82%B9%E3%83%91%26%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88" target="_blank" rel="noopener">地図を開く</a>
+          </div>
         </div>
       </div>
     </div>

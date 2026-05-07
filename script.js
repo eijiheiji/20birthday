@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
      Scroll-triggered reveals (IntersectionObserver)
      ============================================= */
   var revealTargets = document.querySelectorAll(
-    ".travel-destination, .travel-subtitle, .day-block, .footer-message, .highlights-title, .highlight-card"
+    ".travel-destination, .travel-subtitle, .weather-widget, .day-block, .footer-message, .highlights-title, .highlight-card"
   );
 
   var revealObserver = new IntersectionObserver(
@@ -114,4 +114,105 @@ document.addEventListener("DOMContentLoaded", function () {
   }, { passive: true });
 
   onScroll();
+
+  /* =============================================
+     "今ここ" — highlight active timeline item
+     ============================================= */
+  function updateCurrentItem() {
+    var now = new Date();
+    var items = document.querySelectorAll(".timeline-item[data-start]");
+    var match = null;
+    var latestStart = null;
+
+    items.forEach(function (item) {
+      item.classList.remove("current");
+      var start = new Date(item.dataset.start);
+      var end = new Date(item.dataset.end);
+      if (now >= start && now < end) {
+        if (!latestStart || start > latestStart) {
+          latestStart = start;
+          match = item;
+        }
+      }
+    });
+
+    if (match) match.classList.add("current");
+  }
+
+  updateCurrentItem();
+  setInterval(updateCurrentItem, 60 * 1000);
+
+  /* =============================================
+     Weather — Open-Meteo (Atami)
+     ============================================= */
+  var weatherDescriptions = {
+    0: { icon: "☀️", desc: "快晴" },
+    1: { icon: "🌤", desc: "晴れ" },
+    2: { icon: "⛅️", desc: "晴れ時々曇り" },
+    3: { icon: "☁️", desc: "曇り" },
+    45: { icon: "🌫", desc: "霧" },
+    48: { icon: "🌫", desc: "霧" },
+    51: { icon: "🌦", desc: "霧雨" },
+    53: { icon: "🌦", desc: "霧雨" },
+    55: { icon: "🌦", desc: "霧雨" },
+    61: { icon: "🌧", desc: "小雨" },
+    63: { icon: "🌧", desc: "雨" },
+    65: { icon: "🌧", desc: "強い雨" },
+    71: { icon: "🌨", desc: "小雪" },
+    73: { icon: "🌨", desc: "雪" },
+    75: { icon: "🌨", desc: "大雪" },
+    80: { icon: "🌦", desc: "にわか雨" },
+    81: { icon: "🌧", desc: "にわか雨" },
+    82: { icon: "🌧", desc: "激しい雨" },
+    95: { icon: "⛈", desc: "雷雨" },
+    96: { icon: "⛈", desc: "雷雨・ひょう" },
+    99: { icon: "⛈", desc: "激しい雷雨" }
+  };
+
+  function getWeatherInfo(code) {
+    return weatherDescriptions[code] || { icon: "🌡", desc: "—" };
+  }
+
+  function renderWeatherError() {
+    document.querySelectorAll(".weather-card").forEach(function (card) {
+      card.querySelector(".weather-icon").textContent = "🌡";
+      card.querySelector(".weather-temp").textContent = "—";
+      card.querySelector(".weather-desc").textContent = "天気情報を取得できませんでした";
+    });
+  }
+
+  function loadWeather() {
+    var url =
+      "https://api.open-meteo.com/v1/forecast" +
+      "?latitude=35.0964&longitude=139.0716" +
+      "&daily=weather_code,temperature_2m_max,temperature_2m_min" +
+      "&timezone=Asia%2FTokyo" +
+      "&start_date=2026-05-08&end_date=2026-05-09";
+
+    fetch(url)
+      .then(function (res) {
+        if (!res.ok) throw new Error("weather fetch failed");
+        return res.json();
+      })
+      .then(function (data) {
+        var dates = data.daily && data.daily.time;
+        if (!dates) { renderWeatherError(); return; }
+
+        document.querySelectorAll(".weather-card").forEach(function (card) {
+          var date = card.dataset.date;
+          var idx = dates.indexOf(date);
+          if (idx < 0) return;
+          var code = data.daily.weather_code[idx];
+          var max = Math.round(data.daily.temperature_2m_max[idx]);
+          var min = Math.round(data.daily.temperature_2m_min[idx]);
+          var info = getWeatherInfo(code);
+          card.querySelector(".weather-icon").textContent = info.icon;
+          card.querySelector(".weather-temp").textContent = max + "° / " + min + "°";
+          card.querySelector(".weather-desc").textContent = info.desc;
+        });
+      })
+      .catch(renderWeatherError);
+  }
+
+  loadWeather();
 });
